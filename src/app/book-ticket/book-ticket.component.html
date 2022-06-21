@@ -1,0 +1,33 @@
+<h1>Add Passenger</h1>
+
+<form [formGroup]="ticketForm" (ngSubmit)="onSubmit()">
+  <h2>Passengers</h2>
+  <div formArrayName="passengers">
+        <div *ngFor="let item of passengers.controls; let nameIndex=index" [formGroupName]="nameIndex">
+            <label>
+                Name: <input formControlName="Name" />
+            </label> 
+            <label>
+                Age: <input type="number" formControlName="Age" />
+            </label>
+            <label>
+                Gender: <input formControlName="Gender" />
+            </label>
+            <label>
+                SeatNo: <input type="number" formControlName="SeatNo" />
+            </label>
+            <button type="button" (click)="deletePassenger(nameIndex)">Delete Passenger</button>
+        </div>
+        <br/>
+        <br/>
+        <button type="button" (click)="addPassenger()">Add Passenger</button>
+    </div>
+    <br/>
+    <br/>
+    <div>
+        <button type="submit" class="btn btn-primary btn-block">
+            Book Ticket
+        </button>
+    </div>
+
+</form>

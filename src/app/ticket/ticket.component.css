@@ -1,0 +1,252 @@
+@import '~bootstrap/dist/css/bootstrap.css';
+
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+.flex{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:left;
+}
+
+.container1{
+  max-width: none;
+  height: 100vh;
+  background-color: #d3e0e4;
+  /* background-image: url(../assets/bg-img.jpg); */
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.logoname{
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 45px;
+  padding-left: 0px;
+}
+
+.logo{
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 45px;
+  padding-left: 20px;
+}
+
+nav{
+  height: 50px;
+  background: #87beca;
+  box-shadow: 0 3px 15px rgba(0,0,0,.1);
+  /* opacity: 0.6; */
+}
+nav ul{
+  margin-right: 00px;
+}
+
+nav ul li{
+  display: inline-block;
+}
+
+nav ul li a{
+  color: #ffff;
+  padding: 0 15px;
+  display: block;
+  line-height: 40px;
+  font-size: 15px;
+  background: #87beca;
+  transition: .5s;
+}
+
+nav ul ul{
+  position:absolute;
+  top: 10px;
+  border-top: 1px solid #49b3e4;
+  opacity: 0;
+  visibility: hidden;
+}
+nav ul li:hover > ul{
+  top: 50px;
+  opacity: 1;
+  visibility: visible;
+  transition: .3s linear;
+}
+nav ul ul li{
+  width: 150px;
+  display: list-item;
+  position: relative;
+  border: 1px solid #49b3e4;
+  border-top: none;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+
+/*------------------------------------------------------------------
+[ Bold Text ]*/
+.text-bold {
+font-weight: bold;
+}
+
+/*------------------------------------------------------------------
+[ Button ]*/
+
+.btn{
+width:90px;
+padding : 5px
+}
+section {
+display: table;
+}
+
+button {
+outline: none !important;
+border: none;
+background: transparent;
+margin-top: 3px;
+}
+
+.form-btn {
+font-family: Poppins-Medium;
+font-size: 10px;
+color: #555555;
+line-height: 1.2;
+
+display: -webkit-box;
+display: -webkit-flex;
+display: -moz-box;
+display: -ms-flexbox;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 0 10px;
+min-width: 42px;
+height: 42px;
+border-radius: 25px;
+
+background: #91DDF2;
+background: -webkit-linear-gradient(bottom, #7579ff, #91DDF2);
+background: -o-linear-gradient(bottom, #7579ff, #91DDF2);
+background: -moz-linear-gradient(bottom, #7579ff, #91DDF2);
+background: linear-gradient(bottom, #7579ff, #91DDF2);
+position: relative;
+z-index: 1;
+
+-webkit-transition: all 0.4s;
+-o-transition: all 0.4s;
+-moz-transition: all 0.4s;
+transition: all 0.4s;
+}
+
+.form-btn::before {
+content: "";
+display: block;
+position: absolute;
+z-index: -1;
+width: 100%;
+height: 100%;
+border-radius: 25px;
+background-color: #fff;
+top: 0;
+left: 0;
+opacity: 1;
+
+-webkit-transition: all 0.4s;
+-o-transition: all 0.4s;
+-moz-transition: all 0.4s;
+transition: all 0.4s;
+}
+
+.form-btn:hover {
+color: #fff;
+}
+
+.form-btn:hover:before {
+opacity: 0;
+}
+
+.btn-primary-logout {
+/* color: #fff; */
+background-color: #ff0000;
+border-color: #ff0000;
+}
+
+.block {
+display: block;
+width: 55%;
+border: none;
+padding: 14px 28px;
+font-size: 16px;
+cursor: pointer;
+text-align: center;
+height: 50%;
+}
+
+.container-form-btn {
+/* width: 100%; */
+display: -webkit-box;
+display: -webkit-flex;
+display: -moz-box;
+display: -ms-flexbox;
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+}
+  
+  .example-label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 120px;
+  }
+  
+  .example-button-row {
+    display: table-cell;
+    width: 490px;
+    
+  }
+  
+  .example-button-row .mat-button-base {
+    margin: 8px 8px 8px 0;
+  }
+  
+  .example-flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+  
+  }
+
+  container{
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  table {
+    width: 100%;
+  }  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width:5%;
+  }
+
+  input {
+    margin-top: 10px;
+  }

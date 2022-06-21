@@ -1,0 +1,188 @@
+<div class="container1" style="font-family: sans-serif;">    
+    <div class="container"><br>
+      <h4 style="text-align: center;"><strong>Add Inventory</strong></h4>
+    <div class="card" style="width: 50%; display:block; margin:auto;">
+    <div class="card-body">
+    <form [formGroup]="inventoryForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="airlineId">Airline Name</label>
+            <select class="form-control" id="airlineId" formControlName="airlineId">
+                <option *ngFor="let airline of airlineList" [value]="airline.airlineId">{{airline.airlineName}}</option>
+              </select>            
+            <div *ngIf="submitted && f.airlineId.errors" class="alert-danger">
+                <div *ngIf="f.airlineId.errors.required">Airline Name is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="flightNumber">Flight Number</label>
+            <br/>
+            <input
+              type="text"
+              formControlName="flightNumber"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.flightNumber.errors }"
+            />
+            <div *ngIf="submitted && f.flightNumber.errors" class="alert-danger">
+              <div *ngIf="f.flightNumber.errors.required">Flight Number is required</div>
+              <div *ngIf="f.flightNumber.errors.pattern">
+                Invalid Flight Number
+              </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="fromPlace">From Place</label>
+            <br/>
+            <input
+              type="text"
+              formControlName="fromPlace"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.fromPlace.errors }"
+            />
+            <div *ngIf="submitted && f.fromPlace.errors" class="alert-danger">
+              <div *ngIf="f.fromPlace.errors.required">From Place is required</div>              
+            </div>
+          </div>          
+          <div class="form-group">
+            <label for="toPlace">To Place</label>
+            <br/>
+            <input
+              type="text"
+              formControlName="toPlace"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.toPlace.errors }"
+            />
+            <div *ngIf="submitted && f.toPlace.errors" class="alert-danger">
+              <div *ngIf="f.toPlace.errors.required">To Place is required</div>              
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="startDateTime">Start Date Time</label>
+            <br/>
+            <input
+             type="datetime-local" 
+             formControlName="startDateTime"
+             class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.startDateTime.errors}"/>
+             <div *ngIf="submitted && f.startDateTime.errors" class="alert-danger">
+              <div *ngIf="f.startDateTime.errors.required">Start Date Time is required</div>              
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="endDateTime">End Date Time</label>
+            <br/>
+            <input
+             type="datetime-local" 
+             formControlName="endDateTime"
+             class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.endDateTime.errors}"/>
+             <div *ngIf="submitted && f.endDateTime.errors" class="alert-danger">
+              <div *ngIf="f.endDateTime.errors.required">End Date Time is required</div>              
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="scheduledDays">Scheduled Days</label>
+            <br/>
+            <input
+              type="text"
+              formControlName="scheduledDays"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.scheduledDays.errors }"
+            />
+            <div *ngIf="submitted && f.scheduledDays.errors" class="alert-danger">
+              <div *ngIf="f.scheduledDays.errors.required">Scheduled Days is required</div>              
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="instrument">Instrument</label>
+            <br/>
+            <input
+              type="text"
+              formControlName="instrument"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.instrument.errors }"
+            />
+            <div *ngIf="submitted && f.instrument.errors" class="alert-danger">
+              <div *ngIf="f.instrument.errors.required">Instrument is required</div>              
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="noOfBusinessSeats">No of Business Seats</label>
+            <br/>
+            <input
+              type="number"
+              min="1"
+              formControlName="noOfBusinessSeats"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.noOfBusinessSeats.errors }"
+            />
+            <div *ngIf="submitted && f.noOfBusinessSeats.errors" class="alert-danger">
+              <div *ngIf="f.noOfBusinessSeats.errors.required">No of Business Seats is required</div>              
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="noOfNonBusinessSeats">No of Non Business Seats</label>
+            <br/>
+            <input
+              type="number"
+              min="1"
+              formControlName="noOfNonBusinessSeats"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.noOfNonBusinessSeats.errors }"
+            />
+            <div *ngIf="submitted && f.noOfNonBusinessSeats.errors" class="alert-danger">
+              <div *ngIf="f.noOfNonBusinessSeats.errors.required">No of Non Business Seats is required</div>              
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="ticketCharges">Ticket Charges</label>
+            <br/>
+            <input
+              type="text"
+              formControlName="ticketCharges"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.ticketCharges.errors }"
+            />
+            <div *ngIf="submitted && f.ticketCharges.errors" class="alert-danger">
+              <div *ngIf="f.ticketCharges.errors.required">Ticket Charges is required</div>              
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="noOfRows">No Of Rows</label>
+            <br/>
+            <input
+              type="number"
+              min="1"
+              formControlName="noOfRows"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.noOfRows.errors }"
+            />
+            <div *ngIf="submitted && f.noOfRows.errors" class="alert-danger">
+              <div *ngIf="f.noOfRows.errors.required">No Of Rows is required</div>              
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="meal">Meal</label>
+            <br/>
+            <input
+              type="text"
+              formControlName="meal"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.meal.errors }"
+            />
+            <div *ngIf="submitted && f.meal.errors" class="alert-danger">
+              <div *ngIf="f.meal.errors.required">Meal is required</div>              
+            </div>
+          </div>
+        <div class="form-group">
+            <button class="btn btn-primary btn-block">
+                Add Inventory
+            </button>
+            <button routerLink="/home" class="btn btn-primary btn-block">      
+                Cancel
+              </button>
+        </div>    
+    </form>
+    </div>
+    </div>
+    </div>
+</div>

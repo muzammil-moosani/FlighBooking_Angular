@@ -1,0 +1,31 @@
+<div class="container1" style="font-family: sans-serif;">    
+    <div class="container"><br>
+      <h4 style="text-align: center;"><strong>Login</strong></h4>
+    <div class="card" style="width: 50%; display:block; margin:auto;">
+    <div class="card-body">
+<form [formGroup]="loginForm" *ngIf="!isLoggedIn" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+        <div *ngIf="submitted && f.username.errors" class="alert-danger">
+            <div *ngIf="f.username.errors.required">Username is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+        <div *ngIf="submitted && f.password.errors" class="alert-danger">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary btn-block">
+            Login
+        </button>
+        <button routerLink="/" class="btn btn-primary btn-block">      
+            Cancel
+          </button>
+    </div>    
+</form>
+</div>
+</div>

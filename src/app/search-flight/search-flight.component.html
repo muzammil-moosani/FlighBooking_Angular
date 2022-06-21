@@ -1,0 +1,166 @@
+<div class="container1" style="font-family: sans-serif;">    
+    <div class="container"><br>
+      <h4 style="text-align: center;" class="search"><strong>Search Flight</strong></h4>
+    <div class="card" style="width: 50%; display:block; margin:auto;">
+    <div class="card-body">
+    <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+        
+        <div class="form-group">
+            <label for="source">Source</label>
+            <br/>
+            <input
+              type="text"
+              formControlName="source"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.source.errors }"
+            />
+            <div *ngIf="submitted && f.source.errors" class="alert-danger">
+              <div *ngIf="f.source.errors.required">Source is required</div>              
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="destination">Destination</label>
+            <br/>
+            <input
+              type="text"
+              formControlName="destination"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.destination.errors }"
+            />
+            <div *ngIf="submitted && f.destination.errors" class="alert-danger">
+              <div *ngIf="f.destination.errors.required">Destination is required</div>              
+            </div>
+          </div>        
+          <div class="form-group">
+            <label for="startDateTime">Start Date Time</label>
+            <br/>
+            <input
+             type="date" 
+             formControlName="startDateTime"
+             class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.startDateTime.errors}"/>
+             <div *ngIf="submitted && f.startDateTime.errors" class="alert-danger">
+              <div *ngIf="f.startDateTime.errors.required">Start Date Time is required</div>              
+            </div>
+          </div>
+          <div class="form-group"> 
+            <input
+            type="checkbox"
+            formControlName="round"/>
+            <span>&nbsp;&nbsp;</span>
+            <label for="round">Round-Trip</label>
+          </div>
+          <div class="form-group">
+            <label for="endDateTime">Return Date Time</label>
+            <br/>
+            <input
+             type="date" 
+             formControlName="endDateTime"
+             class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.endDateTime.errors}"/>
+             <div *ngIf="submitted && f.endDateTime.errors" class="alert-danger">
+              <div *ngIf="f.endDateTime.errors.required">Return Date Time is required</div>              
+            </div>
+          </div>          
+        <div class="form-group">
+            <button class="btn btn-primary btn-block">
+                Search Flight
+            </button>
+            <button routerLink="/home" class="btn btn-primary btn-block">      
+                Cancel
+              </button>
+        </div>    
+    </form>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+<div class="container1" style="font-family: sans-serif;" *ngIf="isFound">    
+    <div class="container"><br>
+      <h4 style="text-align: center;"><strong>Search Results</strong></h4>
+  
+        <div class="mat-elevation-z8">
+          <table mat-table [dataSource]="dataSource" matSort>
+        
+            <!-- ID Column -->
+            <ng-container matColumnDef="airlineName">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Airline Name </th>
+              <td mat-cell *matCellDef="let row"> {{row.airlineName}} </td>
+            </ng-container>
+        
+            <!-- Progress Column -->
+            <ng-container matColumnDef="flightNumber">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Flight Number </th>
+              <td mat-cell *matCellDef="let row"> {{row.flightNumber}} </td>
+            </ng-container>
+  
+            <!-- Progress Column -->
+            <ng-container matColumnDef="fromPlace">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> From Place </th>
+              <td mat-cell *matCellDef="let row"> {{row.fromPlace}} </td>
+            </ng-container>
+        
+            <!-- Name Column -->
+            <ng-container matColumnDef="toPlace">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>To Place </th>
+              <td mat-cell *matCellDef="let row"> {{row.toPlace}} </td>
+            </ng-container>
+            <ng-container matColumnDef="startDateTime">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Start Date/Time </th>
+                <td mat-cell *matCellDef="let row"> {{row.startDateTime}} </td>
+              </ng-container>
+              <ng-container matColumnDef="endDateTime">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>End Date/Time </th>
+                <td mat-cell *matCellDef="let row"> {{row.endDateTime}} </td>
+              </ng-container>
+              <ng-container matColumnDef="scheduledDays">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Scheduled Days </th>
+                <td mat-cell *matCellDef="let row"> {{row.scheduledDays}} </td>
+              </ng-container>
+              <ng-container matColumnDef="instrument">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Instrument </th>
+                <td mat-cell *matCellDef="let row"> {{row.instrument}} </td>
+              </ng-container>
+              <ng-container matColumnDef="noOfBusinessSeats">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>No of Business Seats </th>
+                <td mat-cell *matCellDef="let row"> {{row.noOfBusinessSeats}} </td>
+              </ng-container>
+              <ng-container matColumnDef="noOfNonBusinessSeats">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>No of Non Business Seats </th>
+                <td mat-cell *matCellDef="let row"> {{row.noOfNonBusinessSeats}} </td>
+              </ng-container>
+              <ng-container matColumnDef="ticketCharges">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Ticket Charges </th>
+                <td mat-cell *matCellDef="let row"> {{row.ticketCharges}} </td>
+              </ng-container>
+              <ng-container matColumnDef="noOfRows">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>No Of Rows </th>
+                <td mat-cell *matCellDef="let row"> {{row.noOfRows}} </td>
+              </ng-container>
+              <ng-container matColumnDef="meal">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Meal </th>
+                <td mat-cell *matCellDef="let row"> {{row.meal}} </td>
+              </ng-container>
+        
+            <ng-container matColumnDef="action">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
+              <td mat-cell *matCellDef="let row">
+                <div class="container-form-btn">                  
+                  <input type="image" src="https://img.icons8.com/nolan/344/arrow.png" name="delete" width="25" height="25" alt="delete" (click)="BookTicket(row.inventoryId)"/>              
+                </div>            
+              </td>
+            </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>       
+            
+          </table>
+        
+          <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+        </div>
+    </div>
+  </div>
+
+  

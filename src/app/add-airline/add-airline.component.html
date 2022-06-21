@@ -1,0 +1,47 @@
+<div class="container1" style="font-family: sans-serif;">    
+    <div class="container"><br>
+      <h4 style="text-align: center;"><strong>Add Airline</strong></h4>
+    <div class="card" style="width: 50%; display:block; margin:auto;">
+    <div class="card-body">
+    <form [formGroup]="airlineForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="airlineName">Airline Name</label>
+            <input type="text" formControlName="airlineName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.airlineName.errors }" />
+            <div *ngIf="submitted && f.airlineName.errors" class="alert-danger">
+                <div *ngIf="f.airlineName.errors.required">Airline Name is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="airlineLogo">Airline Logo</label>
+            <input type="text" formControlName="airlineLogo" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.airlineLogo.errors }" />
+            <div *ngIf="submitted && f.airlineLogo.errors" class="alert-danger">
+                <div *ngIf="f.airlineLogo.errors.required">Airline Logo is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="contactAddress">Contact Address</label>
+            <input type="text" formControlName="contactAddress" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.contactAddress.errors }" />
+            <div *ngIf="submitted && f.contactAddress.errors" class="alert-danger">
+                <div *ngIf="f.contactAddress.errors.required">Contact Address is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="contactNumber">Contact Number</label>
+            <input type="text" formControlName="contactNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.contactNumber.errors }" />
+            <div *ngIf="submitted && f.contactNumber.errors" class="alert-danger">
+                <div *ngIf="f.contactNumber.errors.required">Contact Number is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary btn-block">
+                Add Airline
+            </button>
+            <button routerLink="/home" class="btn btn-primary btn-block">      
+                Cancel
+              </button>
+        </div>    
+    </form>
+    </div>
+    </div>
+    </div>
+</div>

@@ -1,0 +1,83 @@
+<div class="container1" style="font-family: sans-serif;">    
+  <div class="container"><br>
+    <h4 style="text-align: center;"><strong>Register</strong></h4>
+  <div class="card" style="width: 50%; display:block; margin:auto;">
+  <div class="card-body">
+<form [formGroup]="registerForm" *ngIf="!isSuccessful" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="username">Username</label>
+    <br/>
+    <input
+      type="text"
+      formControlName="username"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
+    />
+    <div *ngIf="submitted && f.username.errors" class="alert-danger">
+      <div *ngIf="f.username.errors.required">Username is required</div>
+    </div>
+  </div>
+  <br/>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <br/>
+    <input
+      type="text"
+      formControlName="email"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+    />
+    <div *ngIf="submitted && f.email.errors" class="alert-danger">
+      <div *ngIf="f.email.errors.required">Email is required</div>
+      <div *ngIf="f.email.errors.email">
+        Invalid Email
+      </div>
+    </div>
+  </div>
+  <br/>
+  <div class="form-group">
+    <label for="phonenumber">Mobile Number</label>
+    <br/>
+    <input
+      type="text"
+      formControlName="phonenumber"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f.phonenumber.errors }"
+    />
+    <div *ngIf="submitted && f.phonenumber.errors" class="alert-danger">
+      <div *ngIf="f.phonenumber.errors.required">Mobile Number is required</div>
+      <div *ngIf="f.phonenumber.errors.pattern">
+        Invalid Mobile Number
+      </div>
+    </div>
+  </div>
+  <br/>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <br/>
+    <input
+      type="password"
+      formControlName="password"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+    />
+    <div *ngIf="submitted && f.password.errors" class="alert-danger">
+      <div *ngIf="f.password.errors.required">Password is required</div>
+      <div *ngIf="f.password.errors.minlength">
+        Password must be at least 6 characters
+      </div>
+    </div>
+  </div>
+  <br/>
+  <div class="form-group">
+    <button class="btn btn-primary btn-block">      
+      Register
+    </button>
+    <button routerLink="/" class="btn btn-primary btn-block">      
+      Cancel
+    </button>
+  </div>
+</form>
+</div>
+</div>
+

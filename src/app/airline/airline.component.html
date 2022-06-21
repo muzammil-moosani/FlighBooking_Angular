@@ -1,0 +1,58 @@
+
+<div class="container1" style="font-family: sans-serif;">    
+  <div class="container"><br>
+    <h4 style="text-align: center;"><strong>Manage Airlines</strong></h4>
+
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort>
+      
+          <!-- ID Column -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Airline Name </th>
+            <td mat-cell *matCellDef="let row"> {{row.airlineName}} </td>
+          </ng-container>
+      
+          <!-- Progress Column -->
+          <ng-container matColumnDef="contact">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Contact </th>
+            <td mat-cell *matCellDef="let row"> {{row.contactNumber}} </td>
+          </ng-container>
+
+          <!-- Progress Column -->
+          <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Address </th>
+            <td mat-cell *matCellDef="let row"> {{row.contactAddress}} </td>
+          </ng-container>
+      
+          <!-- Name Column -->
+          <ng-container matColumnDef="blocked">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Blocked </th>
+            <td mat-cell *matCellDef="let row"> {{row.isBlocked}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
+            <td mat-cell *matCellDef="let row">
+              <div class="container-form-btn">
+                <button class="form-btn btn btn-primary-logout text-bold" (click)="BlockAirline(row.airlineId)">Block</button>
+                <span>&nbsp;&nbsp;</span>
+                <button class="form-btn btn btn-primary-back text-bold" (click)="UnBlockAirline(row.airlineId)">UnBlock</button> 
+                <span>&nbsp;&nbsp;</span>
+                <input type="image" src="https://cdn-icons-png.flaticon.com/512/1251/1251882.png" name="delete" width="25" height="25" alt="delete" (click)="DeleteAirline(row.airlineId)"/>              
+              </div>            
+            </td>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      
+          <!-- Row shown when there is no matching data. -->
+          <!-- <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+          </tr> -->
+        </table>
+      
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+      </div>
+  </div>
+</div>
